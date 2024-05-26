@@ -67,4 +67,4 @@ jobs:
         with:
           app-name: "turnersinsuranceapisbackend"
           slot-name: "Production"
-          package: .
+          package: release.zip

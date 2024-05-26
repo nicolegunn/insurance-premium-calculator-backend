@@ -1,7 +1,7 @@
 {
-  "name": "mission-2",
+  "name": "turners_insurance_apis",
   "version": "1.0.0",
-  "description": "",
+  "description": "Turners Insurance APIs",
   "main": "server.js",
   "scripts": {
     "test": "jest --watchAll --verbose",
