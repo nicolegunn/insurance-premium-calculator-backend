@@ -1,7 +1,7 @@
 require("dotenv").config();
 const app = require("./index.js");
 
-const PORT = process.env.PORT;
+const port = process.env.PORT || 4000;
 app
   .listen(PORT, () => {
     console.log(`Server is alive on http://localhost:${PORT}`);
