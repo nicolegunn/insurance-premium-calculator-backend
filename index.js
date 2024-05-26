@@ -1,0 +1,33 @@
+require("dotenv").config();
+const express = require("express");
+const app = express();
+const cors = require("cors");
+
+const allowedOrigins = [
+  "https://red-mud-0cb8e9600.5.azurestaticapps.net",
+  `http://localhost:${process.env.PORT}`,
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+app.use(express.json());
+
+const valueRouter = require("./routes/valueRoutes.js");
+const riskRatingRouter = require("./routes/riskRatingRoutes.js");
+const quoteRouter = require("./routes/quoteRoutes.js");
+
+app.use(valueRouter);
+app.use(riskRatingRouter);
+app.use(quoteRouter);
+
+module.exports = app;
