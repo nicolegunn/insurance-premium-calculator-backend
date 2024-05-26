@@ -1,5 +1,5 @@
 {
-  "name": "turners_insurance_apis",
+  "name": "turners_insurance",
   "version": "1.0.0",
   "description": "Turners Insurance APIs",
   "main": "server.js",
