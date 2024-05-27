@@ -4,7 +4,7 @@
   "description": "Turners Insurance APIs",
   "main": "server.js",
   "scripts": {
-    "test": "jest --watchAll --verbose",
+    "test": "jest",
     "dev": "nodemon server.js",
     "start": "node server.js"
   },
