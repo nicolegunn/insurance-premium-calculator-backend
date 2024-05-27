@@ -1,5 +1,5 @@
 const riskyKeyWords = ["collide", "crash", "scratch", "bump", "smash"];
-//comment to test pull request template
+
 const calculateRisk = (claimHistory) => {
   return riskyKeyWords.reduce((count, keyword) => {
     const regex = new RegExp(keyword, "gi");
