@@ -1,5 +1,18 @@
+const riskyKeyWords = ["collide", "crash", "scratch", "bump", "smash"];
 
+const calculateRisk = (claimHistory) => {
+  return riskyKeyWords.reduce((count, keyword) => {
+    const regex = new RegExp(keyword, "gi");
+    const matches = claimHistory.match(regex);
+    return count + (matches ? matches.length : 0);
+  }, 0);
+};
 
 module.exports.postRiskRating = (req, res) => {
-    return res.status(200).send("postRiskRating working");
+  const { claim_history } = req.body;
+  if (!claim_history) {
+    return res.status(400).json({ error: "no claim history received" });
+  }
+  const riskRating = calculateRisk(claim_history);
+  return res.status(200).send({ risk_rating: riskRating });
 };
