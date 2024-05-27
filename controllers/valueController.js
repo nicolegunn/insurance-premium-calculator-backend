@@ -38,7 +38,7 @@ const calculateCarValue = (carName, year) => {
 };
 
 module.exports = validateVehicle;
-//module.exports = calculateCarValue;
-// module.exports.postValue = (req, res) => {
-//   return res.status(200).send("postValue working");
-// };
+
+module.exports.calculateCarValue = (req, res) => {
+  return res.status(200).send("postValue working");
+};
