@@ -14,5 +14,5 @@ module.exports.postRiskRating = (req, res) => {
     return res.status(400).json({ error: "no claim history received" });
   }
   const riskRating = calculateRisk(claim_history);
-  return res.status(200).send({ risk_rating: riskRating });
+  return res.status(200).json({ risk_rating: riskRating });
 };
