@@ -19,13 +19,12 @@ const validateVehicle = (carName, year) => {
     yearValid: validateYear(year),
   };
 };
-
 // First checks if inputs are valid then returns a car value based on
 // Adding up the positions of the alphabets of the letters in the car name, * 100, then add the year value
 const calculateCarValue = (carName, year) => {
   const validation = validateVehicle(carName, year);
   if (!validation.carNameValid || !validation.yearValid) {
-    throw new Error("Invalid input, please try again");
+    throw new Error("Vehicle details are invalid, please try again");
   }
 
   const carNameValue = carName
@@ -40,5 +39,11 @@ const calculateCarValue = (carName, year) => {
 module.exports = validateVehicle;
 
 module.exports.calculateCarValue = (req, res) => {
-  return res.status(200).send("postValue working");
+  try {
+    const { carName, year } = req.body; //Assuming carName and year are sent in the request
+    const value = calculateCarValue(carName, year);
+    res.json({ value });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
