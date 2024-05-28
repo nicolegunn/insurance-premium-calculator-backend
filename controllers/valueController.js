@@ -24,7 +24,7 @@ const validateVehicle = (carName, year) => {
 const calculateCarValue = (carName, year) => {
   const validation = validateVehicle(carName, year);
   if (!validation.carNameValid || !validation.yearValid) {
-    throw new Error("Vehicle details are invalid");
+    throw new Error("Vehicle details are invalid, please try again");
   }
 
   const carNameValue = carName
