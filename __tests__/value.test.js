@@ -1,5 +1,5 @@
-// const request = require("supertest");
-// const app = require("../server.js");
+const request = require("supertest");
+//const app = require("../server.js");
 
 const validateVehicle = require("../controllers/valueController");
 
