@@ -5,12 +5,14 @@ const containsWords = (paragraph) => {
   return regex.test(paragraph);
 };
 
-const calculateRisk = (claimHistory) => {
-  return riskyKeyWords.reduce((count, keyword) => {
+const calculateRiskRating = (claimHistory) => {
+  const numOfRiskyWords = riskyKeyWords.reduce((count, keyword) => {
     const regex = new RegExp(keyword, "gi");
     const matches = claimHistory.match(regex);
     return count + (matches ? matches.length : 0);
   }, 0);
+  //Risk rating should be between 1 and 5
+  return Math.min(Math.max(numOfRiskyWords, 1), 5);
 };
 
 module.exports.postRiskRating = (req, res) => {
@@ -22,6 +24,7 @@ module.exports.postRiskRating = (req, res) => {
   if (!containsWords(claim_history)) {
     return res.status(400).json({ error: "invalid claim history" });
   }
-  const riskRating = calculateRisk(claim_history);
+  const riskRating = calculateRiskRating(claim_history);
+
   return res.status(200).json({ risk_rating: riskRating });
 };

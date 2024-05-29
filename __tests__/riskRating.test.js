@@ -2,7 +2,7 @@ const request = require("supertest");
 const app = require("../server.js");
 
 describe("Risk Rating API", () => {
-  // Valid Input with Multiple Keywords:
+  // Valid Input with 2-4 Keywords:
   test("should return a risk rating of 3 for the given claim history", async () => {
     const response = await request(app).post("/risk_rating").send({
       claim_history:
@@ -10,6 +10,16 @@ describe("Risk Rating API", () => {
     });
     expect(response.statusCode).toBe(200);
     expect(response.body).toEqual({ risk_rating: 3 });
+  });
+
+  // Valid Input with more than 5 Keywords:
+  test("should return a risk rating of 5 for the given claim history", async () => {
+    const response = await request(app).post("/risk_rating").send({
+      claim_history:
+        "I crash a lot, my car has had several bumps, smashes, crashes, scratches and I collide all over the place",
+    });
+    expect(response.statusCode).toBe(200);
+    expect(response.body).toEqual({ risk_rating: 5 });
   });
 
   // Valid Input with Single Keyword:
@@ -22,12 +32,12 @@ describe("Risk Rating API", () => {
   });
 
   // Valid Input with No Keywords:
-  test("should return a risk rating of 0 for claim history with no keywords", async () => {
+  test("should return a risk rating of 1 for claim history with no keywords", async () => {
     const response = await request(app).post("/risk_rating").send({
       claim_history: "I am the best driver in the world!",
     });
     expect(response.statusCode).toBe(200);
-    expect(response.body).toEqual({ risk_rating: 0 });
+    expect(response.body).toEqual({ risk_rating: 1 });
   });
 
   // Input with no alphabetic characters:
