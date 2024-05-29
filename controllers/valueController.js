@@ -47,3 +47,15 @@ module.exports.calculateCarValue = (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+
+
+//Pete - my code review suggestions:
+// 1. You should not be exporting validateVehicle as it is a helper function and not used outside of this file, so line 39 is redundant
+// 2. Change line 41 from module.exports.calculateCarValue to module.exports.postCarValue
+// 3. Prefixing with post is the convention, and also would avoid confusion with your calculateCarValue function
+// 4. You need to change line 5 in the valueRoutes.js file: router.post("/value", valueController.postCarValue);
+// 5. Line 45 res.json({ value }); - send back a status code and also a key value pair in your json response
+//    e.g. return res.status(200).json({ car_value: value });
+// 6. Tests - need to test the response that is being sent when the api is hit
+//    At the moment you're testing your validateVehicle function instead 
+//    Check out the riskRating.test.js file 
