@@ -2,6 +2,11 @@ const request = require("supertest");
 const app = require("../server.js");
 
 describe("Risk Rating API", () => {
+  // Close the server after all tests are done
+  afterAll((done) => {
+    app.close(done);
+  });
+
   // Valid Input with 2-4 Keywords:
   test("should return a risk rating of 3 for the given claim history", async () => {
     const response = await request(app).post("/risk_rating").send({
