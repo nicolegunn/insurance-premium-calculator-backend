@@ -27,6 +27,7 @@ const calculateCarValue = (carName, year) => {
     throw new Error("Vehicle details are invalid, please try again");
   }
 
+  // Calculating a "value" based on car name and year
   const carNameValue = carName
     .toUpperCase()
     .split("")
@@ -36,13 +37,12 @@ const calculateCarValue = (carName, year) => {
   return carNameValue * 100 + parseInt(year, 10);
 };
 
-module.exports = validateVehicle;
-
-module.exports.calculateCarValue = (req, res) => {
+//
+module.exports.postCarValue = (req, res) => {
   try {
     const { carName, year } = req.body; //Assuming carName and year are sent in the request
     const value = calculateCarValue(carName, year);
-    res.json({ value });
+    res.json({ car_value: value });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
