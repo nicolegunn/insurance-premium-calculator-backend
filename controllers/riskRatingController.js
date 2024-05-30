@@ -28,3 +28,10 @@ module.exports.postRiskRating = (req, res) => {
 
   return res.status(200).json({ risk_rating: riskRating });
 };
+
+
+// Nicole - my very brief coding suggestions:
+// Maybe just a comment here or there in this file to explain whats happening, mainly for other people looking. 
+// Possibly a brief explanation of how the calculateRiskRating function works, how it arrives at a specific risk rating figure based on the user's input.
+// Then again, numOfRiskyWords is pretty self explanatory haha
+// Otherwise - super tidy and concise coding, i can't fault it!
