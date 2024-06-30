@@ -25,10 +25,8 @@ app.use(express.json());
 
 const valueRouter = require("./routes/valueRoutes.js");
 const riskRatingRouter = require("./routes/riskRatingRoutes.js");
-const quoteRouter = require("./routes/quoteRoutes.js");
 
 app.use(valueRouter);
 app.use(riskRatingRouter);
-app.use(quoteRouter);
 
 module.exports = app;
