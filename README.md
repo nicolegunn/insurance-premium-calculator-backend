@@ -10,13 +10,15 @@
 
 ## Description
 
-This backend service calculated insurance premiums based on an array of risky words. The service scored the words between 1-5 and applied this score to a base premium. It also included tests for the API using Jest and Supertest.
+This backend service calculated the value of a car based on its model and year of manufacture.  
+Additionally it provided insurance premium risk factors based on an array of risky words. The service provided a risk factor between 1-5 based on claim history as described and inputted by a user in the frontend application.  
+It also included tests for the API using Jest and Supertest.
 
 ## Features
 
+- **Car Value Estimate:** Calculated a vehicle value based on model and year of manufacture.
 - **Risky Words Analysis:** Calculated a risk score based on an array of risky words.
-- **Premium Calculation:** Applied the risk score to a base premium to calculate the final premium.
-- **API Endpoints:** Provided API endpoints for the frontend to retrieve premium calculations.
+- **API Endpoints:** Provided API endpoints for the frontend to retrieve car value and insurance premium risk factor.
 - **Testing:** Included tests for the API using Jest and Supertest.
 
 ## Technologies Used
