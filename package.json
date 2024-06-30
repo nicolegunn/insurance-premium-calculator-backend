@@ -1,7 +1,6 @@
 {
-  "name": "turners_insurance",
+  "name": "insurance premium calculator",
   "version": "1.0.0",
-  "description": "Turners Insurance APIs",
   "main": "server.js",
   "scripts": {
     "test": "jest",

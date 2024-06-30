@@ -1,13 +1,12 @@
-# Vehicle Image Recognition Backend (Risky Words and Premium Calculation) (Archived)
+# Insurance Premium Calculator Backend (Archived)
 
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express&logoColor=white)
 ![Axios](https://img.shields.io/badge/Axios-1.2.0-orange?style=for-the-badge&logo=axios)
 ![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
 ![Supertest](https://img.shields.io/badge/Supertest-16C60C?style=for-the-badge)
-![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
 
-**Note:** This project is no longer functional as the Azure Vision service has been disabled. The code is kept here for reference purposes only.
+**Note:** This project is no longer functional as the frontend which was hosted on Azure has been disabled. The code is kept here for reference purposes only.
 
 ## Description
 
@@ -27,4 +26,7 @@ This backend service calculated insurance premiums based on an array of risky wo
 ![Axios](https://img.shields.io/badge/Axios-1.2.0-orange?style=for-the-badge&logo=axios)
 ![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
 ![Supertest](https://img.shields.io/badge/Supertest-16C60C?style=for-the-badge)
-![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
