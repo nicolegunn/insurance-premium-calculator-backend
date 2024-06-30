@@ -1,8 +1,8 @@
-module.exports.postValue = (req, res) => {
-  return res.status(200).send("postValue working");
+// Validates if a car name input is valid - only letters - using regex
+const validateCarName = (carName) => {
+  const carNameRegex = /^[a-zA-Z\s]+$/;
+  return carName.trim().length > 0 && carNameRegex.test(carName);
 };
-<<<<<<< Updated upstream
-=======
 
 // Validates if a car year input is valid - 4 numbers between 1886 to current year - using regex
 const validateYear = (year) => {
@@ -27,6 +27,7 @@ const calculateCarValue = (carName, year) => {
     throw new Error("Vehicle details are invalid, please try again");
   }
 
+  // Calculating a "value" based on car name and year
   const carNameValue = carName
     .toUpperCase()
     .split("")
@@ -36,15 +37,13 @@ const calculateCarValue = (carName, year) => {
   return carNameValue * 100 + parseInt(year, 10);
 };
 
-module.exports = validateVehicle;
-
-module.exports.calculateCarValue = (req, res) => {
+module.exports.postCarValue = (req, res) => {
   try {
     const { carName, year } = req.body; //Assuming carName and year are sent in the request
     const value = calculateCarValue(carName, year);
-    res.json({ value });
+    res.json({ car_value: value });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
->>>>>>> Stashed changes
+
